@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # Bumps the pinned action SHAs and the version comment next to them.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: monthly

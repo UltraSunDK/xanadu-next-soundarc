@@ -1,0 +1,14 @@
+; Mirrors the export table of the real 32-bit dinput8.dll
+; (C:\Windows\SysWOW64\dinput8.dll), enumerated with `rizin -c iE`.
+; Ordinals are pinned to match the system DLL.
+;
+; PRIVATE keeps the COM registration entry points out of the generated import
+; library, as the system DLL does; they are still exported from the DLL itself.
+LIBRARY dinput8
+EXPORTS
+    DirectInput8Create   @1
+    DllCanUnloadNow      @2 PRIVATE
+    DllGetClassObject    @3 PRIVATE
+    DllRegisterServer    @4 PRIVATE
+    DllUnregisterServer  @5 PRIVATE
+    GetdfDIJoystick      @6

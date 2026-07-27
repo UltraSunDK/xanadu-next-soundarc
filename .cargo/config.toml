@@ -1,0 +1,10 @@
+# Xanadu Next is a 32-bit process; the mod DLL must match.
+[build]
+target = "i686-pc-windows-msvc"
+
+# Static CRT: a mod DLL that fails to load because the VC++ redistributable is
+# missing would be an invisible failure (the game would just silently fall back
+# to spawning the sound process). Linking the CRT statically keeps the DLL
+# self-contained.
+[target.i686-pc-windows-msvc]
+rustflags = ["-C", "target-feature=+crt-static"]
